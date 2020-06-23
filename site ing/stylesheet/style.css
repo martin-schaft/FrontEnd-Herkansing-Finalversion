@@ -1,0 +1,895 @@
+/* Importeert font ING Me */
+@import url(//db.onlinewebfonts.com/c/69c633b2a4e41e8101c6f4f149655d5e?family=ING+Me);
+
+/* Kleur achtergrond website */
+:root {
+    --background: rgba(235, 235, 235);
+}
+
+/* Importeert font ING Me */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: "ing me";
+    font-weight: 400;
+}
+
+/* Importeert font ING Me */
+body {
+    margin: 0;
+    background: #F5F5F5;
+
+}
+
+/* Importeert font ING Me */
+header {
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
+/* Hier begint de styling van de navigatie */
+.nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+    outline: 3px solid rgba(lightblue, .75);
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: black;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+.current {
+    color: #ff6200;
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+    color: #ff6200;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+.logo {
+    height: 3rem;
+}
+
+@media screen and (min-width: 800px) {
+    .nav-toggle-label {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+
+    .logo {
+        grid-column: 2 / 3;
+    }
+
+
+
+    nav {
+        // all: unset; /* this causes issues with Edge, since it's unsupported */
+
+        /* the following lines are not from my video, but add Edge support */
+        position: relative;
+        text-align: left;
+        transition: none;
+        transform: scale(1, 1);
+        background: none;
+        top: initial;
+        left: initial;
+        /* end Edge support stuff */
+
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    nav li {
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        opacity: 1;
+        position: relative;
+    }
+
+    nav a::before {
+        content: '';
+        display: block;
+        height: 5px;
+        background: #ff6200;
+        position: absolute;
+        top: -.75em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+
+    nav a:hover::before {
+        transform: scale(1, 1);
+    }
+}
+
+/* Hier eindigt de styling van de navigatie */
+
+/* Dit is niet meer nodig? */
+
+/* button,
+input,
+select,
+textarea {
+    font-size: 18px;
+    line-height: 1.5;
+} */
+
+/* Hier begint de styling van de typografie */
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+}
+
+/* Dit is niet meer nodig? */
+
+/* .logo,
+.site-title {
+    text-align: center;
+}
+
+.logo {
+    font-size: 8em;
+}
+
+.site-title {
+    margin-top: -1em;
+    margin-bottom: 3em;
+} */
+
+
+
+/* Splash sectie */
+
+.splash {
+    border-bottom-color: black;
+    border-bottom: 100px;
+}
+
+.splash-content {
+    padding: 1.5em;
+}
+
+@media screen and (min-width: 600px) {
+    .splash-text {
+        columns: 2;
+        column-gap: 2em;
+    }
+
+    .splash-text p {
+        padding-top: 0;
+    }
+}
+
+/* Buckets sectie */
+
+.buckets {
+    padding: 2em 1em 1em;
+    background: #3E454C;
+}
+
+.buckets ul {
+    margin: 0;
+    padding: 0;
+}
+
+.buckets li {
+    margin-bottom: 1em;
+    background: white;
+    list-style-type: none;
+}
+
+.bucket {
+    padding: 1.5em;
+}
+
+/* Meer sectie */
+
+.more {
+    padding: 2em;
+}
+
+/* Twins sectie */
+
+.twin {
+    padding: 1em;
+    background: #FFFFFF;
+    color: black;
+}
+
+.twin:last-of-type {
+    background: #FFFFFF;
+}
+
+/* Footer sectie */
+.footer {
+    padding: 1em;
+    background: rgba(235, 235, 235);
+    color: black;
+    text-align: center;
+}
+
+.content-title {
+    color: #ff6200;
+    margin:
+}
+
+.content-subtitle {
+    color: #ff6200;
+    padding: 0;
+}
+
+.footer a {
+    color: white;
+    font-weight: bold;
+}
+
+.footer a:hover,
+.footer a:focus {
+    border-bottom: 1px solid white;
+}
+
+@media screen and (min-width: 600px) {
+
+    /* Layout with CSS Grid */
+    @supports (display: grid) {
+
+        /* Four-column layout. Two center columns have a total max width of 50em: */
+        .grid {
+
+            display: grid;
+            grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+        }
+
+        /* Center items by placing them in the two center columns: */
+        .splash-content,
+        .more-content,
+        .buckets ul {
+            grid-column: 2/4;
+        }
+
+        /* Use automatic grid placement + span to let each item span two columns:*/
+        .twin,
+        .footer aside {
+            grid-column: span 2;
+        }
+
+    }
+}
+
+/* Hier begint styling van de knoppen */
+
+.wrapper {
+    text-align: center;
+}
+
+.wrapper1 {
+    text-align: center;
+
+}
+
+.wrapper1,
+.mijnKnop {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.mijnKnop {
+    background-color: #ff6200;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 8px 15px;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.mijnKnop:hover {
+    background-color: #ff6200;
+}
+
+.mijnKnop:active {
+    position: relative;
+    top: 1px;
+}
+
+/* Hier begint styling van de images */
+
+.centered-image-container {
+    text-align: center;
+}
+
+.centered-image {
+    width: auto;
+    max-width: 70%;
+    padding-bottom: 10px;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+/* Hier begint styling van de banner */
+
+#background {
+    background: url(../images/pexels-photo-215367.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 260px;
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    #background {
+        height: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    #background {
+        height: 250px;
+    }
+}
+
+@media (min-width: 992px) {
+    #background {
+        height: 400px;
+    }
+}
+
+.titel {
+    font-size: 40px;
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    color: white
+}
+
+/* Div voor Javascript functie formulier */
+
+#mijnDiv {
+    opacity: 0
+}
+
+
+
+/* Nieuwe stijling formulier */
+
+
+.contactformulier {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 50px 0;
+}
+
+.contactformulier h3 {
+    color: #ff6200;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.contactformulier h4 {
+    color: #ff6200;
+    margin: 5px 0 15px;
+    display: block;
+    font-size: 13px;
+}
+
+#contactformulier input[type="text"],
+#contactformulier input[type="email"],
+#contactformulier input[type="tel"],
+#contactformulier input[type="url"],
+#contactformulier textarea,
+#contactformulier button[type="submit"] {
+    font: 400 12px/16px;
+}
+
+#contactformulier input[type="text"],
+#contactformulier input[type="email"],
+#contactformulier input[type="tel"],
+#contactformulier input[type="url"],
+#contactformulier textarea {
+    width: 100%;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+}
+
+#contactformulier button:hover {
+    background: #ff9500;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#contactformulier button {
+    background-color: #ff6200;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 8px 15px;
+    text-decoration: none;
+    justify-content: center;
+}
+
+#contactformulier button:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+
+::-webkit-input-placeholder {
+    color: #888;
+}
+
+:-moz-placeholder {
+    color: #888;
+}
+
+::-moz-placeholder {
+    color: #888;
+}
+
+:-ms-input-placeholder {
+    color: #888;
+}
+
+.contactformulier_hint,
+.required_notification {
+    font-size: 11px;
+}
+
+.contactformulier ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0px;
+    padding: 0px;
+}
+
+.contactformulier li {
+    padding: 6px;
+    position: relative;
+}
+
+.contactformulier li:first-child,
+.contactformulier li:last-child {}
+
+*:focus {
+    outline: none;
+}
+
+. .contactformulier input[type="text"] {
+    height: 20px;
+    width: 220px;
+}
+
+.contactformulier input[type="email"] {
+    height: 45px;
+    width: 300px;
+}
+
+.contactformulier select {
+    appearance: none;
+    height: 25px;
+    width: 300px;
+}
+
+
+/* form element visual styles */
+.contactformulier input[type="text"],
+.contactformulier input[type="email"],
+.contactformulier textarea,
+.contactformulier select {
+    border: 1px solid #707070;
+}
+
+.contactformulier input[type="text"]:focus,
+.contactformulier input[type="email"]:focus,
+.contactformulier textarea:focus,
+.contactformulier select:focus {
+    background: #fff;
+    border: 1px solid #555;
+    box-shadow: 0 0 3px #aaa;
+}
+
+
+
+.contactformulier input:required,
+.contactformulier textarea:required {
+    background: #fff;
+}
+
+.contactformulier input:required:valid,
+.contactformulier textarea:required:valid {
+    background: #fff;
+    box-shadow: #5cd053;
+    border-color: #28921f;
+}
+
+.contactformulier input:focus:invalid,
+.contactformulier textarea:focus:invalid {
+    background: #fff;
+    box-shadow: #d45252;
+    border-color: #fd0202;
+}
+
+.contactformulier_hint {
+    background-color: #d45252;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    width: 270px;
+    margin-left: 8px;
+    padding: 4px 6px;
+    z-index: 999;
+    /* hints stay above all other elements */
+    position: absolute;
+    /* allows proper formatting if hint is two lines */
+    display: none;
+}
+
+.contactformulier_hint::before {
+    content: "\25C0";
+    /* left point triangle in escaped unicode */
+    color: #d45252;
+    position: absolute;
+    top: 1px;
+    left: -6px;
+}
+
+.contactformulier input:focus + .contactformulier_hint {
+    display: inline;
+}
+
+.contactformulier input:required:valid + .contactformulier_hint {
+    background: #28921f;
+}
+
+/* change form hint color when valid */
+.contactformulier input:required:valid + .contactformulier_hint::before {
+    color: #28921f;
+}
+
+/* change form hint arrow color when valid */
+
+
+
+/* Zorgt voor de stijling van de animatie */
+
+
+#overlay {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+#popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    margin-top: -250px;
+    z-index: -1;
+    visibility: hidden;
+}
+
+#popupclose {
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.popupcontent {
+    padding: 10px;
+}
+
+#button {
+    cursor: pointer;
+}
+
+/* Hier wordt animatie gemaakt */
+
+@-webkit-keyframes pop-swirl {
+    0% {
+        transform: scale(0) rotate(360deg);
+    }
+
+    60% {
+        transform: scale(0.8) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@-moz-keyframes pop-swirl {
+    0% {
+        transform: scale(0) rotate(360deg);
+    }
+
+    60% {
+        transform: scale(0.8) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@-ms-keyframes pop-swirl {
+    0% {
+        transform: scale(0) rotate(360deg);
+    }
+
+    60% {
+        transform: scale(0.8) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@-o-keyframes pop-swirl {
+    0% {
+        transform: scale(0) rotate(360deg);
+    }
+
+    60% {
+        transform: scale(0.8) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes pop-swirl {
+    0% {
+        transform: scale(0) rotate(360deg);
+    }
+
+    60% {
+        transform: scale(0.8) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+
+
+#popup[data-pop="slide-down"] {
+    top: -50%;
+    transition: all .5s ease-in-out;
+}
+
+#popup[data-pop="slide-down"].show {
+    visibility: visible;
+    z-index: 200;
+    opacity: 1;
+    top: 50%;
+}
+
+#popup[data-pop="slide-down"].show ~ #overlay {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+}
+
+#popup[data-pop="pop-in"] {
+    transform: scale(0);
+    transition: all .5s ease-in-out;
+}
+
+#popup[data-pop="pop-in"].show {
+    transform: scale(1);
+    visibility: visible;
+    z-index: 200;
+    opacity: 1;
+}
+
+#popup[data-pop="pop-in"].show ~ #overlay {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+}
+
+#popup[data-pop="pop-swirl"] {
+    transform: scale(0);
+    transition: all .5s ease-in-out;
+}
+
+#popup[data-pop="pop-swirl"].show {
+    -webkit-animation: pop-swirl 1s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+    visibility: visible;
+    z-index: 200;
+    opacity: 1;
+}
+
+#popup[data-pop="pop-swirl"].show ~ #overlay {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+}
+
+/* Experimentatie met bounce effect uiteindelijk niet gebruikt */
+
+/*
+.animated {
+            background-repeat: no-repeat;
+            background-position: left top;
+            padding-top:95px;
+            margin-bottom:60px;
+            -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+         }
+
+         @-webkit-keyframes bounceInLeft {
+            0% {
+               opacity: 0;
+               -webkit-transform: translateX(-2000px);
+            }
+            60% {
+               opacity: 1;
+               -webkit-transform: translateX(30px);
+            }
+            80% {
+               -webkit-transform: translateX(-10px);
+            }
+            100% {
+               -webkit-transform: translateX(0);
+            }
+         }
+
+         @keyframes bounceInLeft {
+            0% {
+               opacity: 0;
+               transform: translateX(-2000px);
+            }
+            60% {
+               opacity: 1;
+               transform: translateX(30px);
+            }
+            80% {
+               transform: translateX(-10px);
+            }
+            100% {
+               transform: translateX(0);
+            }
+         }
+
+         .bounceInLeft {
+            -webkit-animation-name: bounceInLeft;
+            animation-name: bounceInLeft;
+         }
+*/
